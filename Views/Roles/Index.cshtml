@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Роли";
+}
+<h1>
+    Cписок ролей
+</h1>
+<p>
+    <a asp-action="Create"> Создание роли</a>
+</p>
+<table id="table" class="rounded col-sm-4" style="">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+        
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.Id)
+                </td>
+                    <td>
+                    @Html.DisplayFor(modelItem=>item.Id)
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>
