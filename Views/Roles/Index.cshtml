@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create"> Создание роли</a>
 </p>
-<table id="table" class="rounded col-sm-4" style="">
+<table id="table" class="rounded col-sm-8" style="">
     <thead>
         <tr>
             <th>
@@ -32,7 +32,7 @@
                     @Html.DisplayFor(modelItem=>item.Id)
                 </td>
                     <td>
-                    @Html.DisplayFor(modelItem=>item.Id)
+                    @Html.DisplayFor(modelItem=>item.Name)
                     </td>
             </tr>
         }
