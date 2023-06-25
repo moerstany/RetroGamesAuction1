@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RetroGamesAuction1.Data;
+using RetroGamesAuction1.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
