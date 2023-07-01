@@ -1,0 +1,85 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-image: url(/fone3.jpg);
+    background-position: center center;
+    /* определяет размер изображения на странице */
+    background-size: cover;
+    /* свойство устанавливает, будет ли повторяться изображение и каким образом */
+    background-repeat: no-repeat;
+    /* cвойство определяет, будет ли фоновое изображение прокручиваться 
+  вместе с остальной частью страницы или будет фиксированным */
+    margin: 50px;
+    margin-right:150px;
+    padding: 0px;
+    background-attachment: fixed;
+    font-size: 16px;
+    color: red;
+    margin-bottom: 60px;
+}
+
+#navbar {
+    background-color: black;
+    opacity: 0.6;
+    color: white;
+}
+
+#table {
+    background-color: blanchedalmond;
+    opacity: 0.8;
+    color: black;
+    //border: 2px solid black;
+    -webkit-box-shadow: 1px 1px 6px 2px rgba(247, 226, 151, 1);
+    -moz-box-shadow: 1px 1px 6px 2px rgba(247, 226, 151, 1);
+    box-shadow: 1px 2px 6px 2px rgba(247, 226, 151, 1);
+}
+
+tr:hover {
+    background-color: sandybrown;
+}
+
+
+#link1 {
+    color: #00bfff; /* Цвет обычной ссылки */
+    position: relative;
+    cursor: pointer;
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+#link1:after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px; /* Высота линии */
+    background-color: black; /* Цвет подчеркивания при исчезании линии*/
+    transition: width 0.5s; /* Время эффекта */
+}
+
+#link1:hover:after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px; /* Высота линии */
+    background-color: red; /* Цвет подчеркивания при появлении линии*/
+    transition: width 0.5s; /* Время эффекта */
+}
+

@@ -12,7 +12,7 @@ public partial class DataApplicationDbContext : DbContext
         : base(options)
     {
     }
-
+    public virtual DbSet<ApplicationUser> ApplicationUser { get; set; }
     public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
 
     public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }

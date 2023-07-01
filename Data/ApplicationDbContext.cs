@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using RetroGamesAuction1.Models;
 
 namespace RetroGamesAuction1.Data
 {
