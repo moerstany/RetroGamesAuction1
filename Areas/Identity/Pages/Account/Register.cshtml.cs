@@ -77,25 +77,7 @@ namespace RetroGamesAuction1.Areas.Identity.Pages.Account
         /// </summary>
         public class InputModel
         { //добавили колонки ФИО в регистрации
-            [Required]
-            [Display(Name = "Фамилия")]
-            public string Name1 { get; set; }
-
-            [Required]
-            [Display(Name = "Имя")]
-            public string FirstName { get; set; }
-
-            
-            [Display(Name = "Отчество")]
-            public string LastName { get; set; }
-
-            
-            [Display(Name = "Почтовый индекс")]
-            public string PostCode { get; set; }
-
-            
-            [Display(Name = "Почтовый адрес")]
-            public string PostAdress { get; set; }
+           
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -147,11 +129,7 @@ namespace RetroGamesAuction1.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                //добавили поля
-                user.FirstName = Input.FirstName;
-                user.LastName = Input.LastName;
-                user.PostCode = Input.PostCode;
-                user.PostAdress = Input.PostAdress;
+                
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
