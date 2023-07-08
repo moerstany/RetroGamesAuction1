@@ -7,8 +7,8 @@ namespace RetroGamesAuction1.Controllers
     public class ProductController : Controller
     {
         
-        private readonly ApplicationDbContext _context;
-        public ProductController(ApplicationDbContext context)
+        private readonly DataApplicationDbContext _context;
+        public ProductController(DataApplicationDbContext context)
         {
             _context = context;
         }

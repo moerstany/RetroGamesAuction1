@@ -12,36 +12,8 @@
    "ProjectRootNamespace": "RetroGamesAuction1",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
-   "SelectedToBeGenerated": 0,
+   "SelectedToBeGenerated": 1,
    "Tables": [
-      {
-         "Name": "public.AspNetRoleClaims",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetRoles",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetUserClaims",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetUserLogins",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetUserRoles",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetUsers",
-         "ObjectType": 0
-      },
-      {
-         "Name": "public.AspNetUserTokens",
-         "ObjectType": 0
-      },
       {
          "Name": "public.auction",
          "ObjectType": 0
