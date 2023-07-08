@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Продукты</h1>
+<h4>Товары</h4>
 
 
    
@@ -35,16 +35,16 @@
                     @Html.TextBox("searchValue",null,new {Class = "form-control",placeholder = "Введите значение поиска"})
                 </td>
                 <td>
-                    <input type="submit" value="Поиск" class="btn btn-outline-success"/>
+                    <input type="submit" value="Поиск" class="btn btn-outline-primary"/>
                 </td>
             </tr>
         </table>
     }
 </div>
 _
- <a href="@Url.Action("Create","Product","Product")" class="btn btn-outline-secondary">Создать</a>
+ <a href="@Url.Action("Create","Product","Product")" class="btn btn-outline-primary">Создать</a>
 -
-<table  id="table" class="table-rounded table-bordered col-sm-8" style="" >
+<table  id="table" class="table-rounded table-bordered col-sm-12" style="" >
     <thead>
         <tr>
             <th scope ="col">
@@ -88,7 +88,7 @@ _
                 </td>
                 <td> 
                     
-                    |<a href="@Url.Action("Edit","Product",new {@id=item.IdProduct})" class="btn btn-outline-success">Изменить</a>
+                    |<a href="@Url.Action("Edit","Product",new {@id=item.IdProduct})" class="btn btn-outline-primary">Изменить</a>
                     |<a href="@Url.Action("Delete","Product",new {@id=item.IdProduct})" class="btn btn-outline-danger" onclick="return confirm('Вы правда хотите удалить продукт? @item.ProductName?')">Удалить</a>
                 </td>
             </tr>
