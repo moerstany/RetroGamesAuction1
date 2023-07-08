@@ -11,6 +11,11 @@ namespace RetroGamesAuction1.Models;
 [Table("product")]
 public partial class Product
 {
+    public Product()
+    {
+        Auction = new HashSet<Auction>();
+        Auctionbid = new HashSet<Auctionbid>();
+    }
     [Key]
     [Column("id_product")]
     public int IdProduct { get; set; }

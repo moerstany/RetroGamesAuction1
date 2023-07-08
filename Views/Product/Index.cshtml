@@ -1,0 +1,97 @@
+﻿@model IEnumerable<RetroGamesAuction1.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Продукты</h1>
+
+
+   
+@if (@TempData["AlertMessage"] != null)
+{
+  <div class="alert alert-secondary">
+    <strong>Ура! </strong>@TempData["AlertMessage"]
+</div>  
+}
+<br />
+<div>
+    @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>
+                    <span><b>Поиск по: </b></span>
+                    @Html.RadioButton("searchBy","ProductName",true)
+                    <text>Название продукта</text>
+                    @Html.RadioButton("searchBy","Articul",true)
+                    <text>Артикул</text>
+                    @Html.RadioButton("searchBy","Cost")
+                    <text>Цена</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("searchValue",null,new {Class = "form-control",placeholder = "Введите значение поиска"})
+                </td>
+                <td>
+                    <input type="submit" value="Поиск" class="btn btn-outline-success"/>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+_
+ <a href="@Url.Action("Create","Product","Product")" class="btn btn-outline-secondary">Создать</a>
+-
+<table  id="table" class="table-rounded table-bordered col-sm-8" style="" >
+    <thead>
+        <tr>
+            <th scope ="col">
+                Продукт
+            </th scope ="col">
+            <th>
+                Артикул
+            </th>
+            <th scope ="col">
+                Цена
+            </th>
+            <th scope ="col">
+                Описание
+            </th>
+            <th scope ="col">
+                Изображение
+            </th>
+             <th scope ="col">
+                Изменение
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Articul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prise)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ProductPic)" width="100" height="100" alt="картинка" />
+                </td>
+                <td> 
+                    
+                    |<a href="@Url.Action("Edit","Product",new {@id=item.IdProduct})" class="btn btn-outline-success">Изменить</a>
+                    |<a href="@Url.Action("Delete","Product",new {@id=item.IdProduct})" class="btn btn-outline-danger" onclick="return confirm('Вы правда хотите удалить продукт? @item.ProductName?')">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

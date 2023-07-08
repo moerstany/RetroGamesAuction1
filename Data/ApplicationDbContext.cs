@@ -10,5 +10,10 @@ namespace RetroGamesAuction1.Data
             : base(options)
         {
         }
+        public DbSet<Product> Product { get; set; }
+
+        public DbSet<Auction> Auction { get; set; }
+        public DbSet<Auctionbid> Auctionbid { get; set; }
+        
     }
 }
