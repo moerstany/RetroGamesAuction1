@@ -8,9 +8,12 @@ namespace RetroGamesAuction1.Controllers
     {
         
         private readonly DataApplicationDbContext _context;
-        public ProductController(DataApplicationDbContext context)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        
+        public ProductController(DataApplicationDbContext context,IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
         // GET: Product1Controller
         public ActionResult Index(string searchBy, string searchValue)
@@ -61,8 +64,31 @@ namespace RetroGamesAuction1.Controllers
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> Create(Product product)
         {
+            if(product.Photo1 != null)
+            {
+                string folder = "lib/product/";
+                //создали уникальное имя файла
+                folder +=Guid.NewGuid().ToString() + product.Photo1.FileName;
+                product.ProductPic = folder;
+                string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath,folder);
+                await product.Photo1.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                
+                string folder1 = "lib/product/";
+                //создали уникальное имя файла
+                folder1 += Guid.NewGuid().ToString() + product.Photo2.FileName;
+                product.ProductPic1 = folder1;
+                string serverFolder1 = Path.Combine(_webHostEnvironment.WebRootPath, folder1);
+                await product.Photo2.CopyToAsync(new FileStream(serverFolder1, FileMode.Create));
+                
+                string folder2 = "lib/product/";
+                //создали уникальное имя файла
+                folder2 += Guid.NewGuid().ToString() + product.Photo3.FileName;
+                product.ProductPic2 = folder2;
+                string serverFolder2 = Path.Combine(_webHostEnvironment.WebRootPath, folder2);
+                await product.Photo3.CopyToAsync(new FileStream(serverFolder2, FileMode.Create));
+            }
             _context.Add(product);
             _context.SaveChanges();
             TempData["AlertMessage"] = "Продукт Создан!";
@@ -80,7 +106,7 @@ namespace RetroGamesAuction1.Controllers
         // POST: FacturaController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        public async Task<ActionResult> Edit(Product product)
         {
             try
             {
@@ -90,8 +116,28 @@ namespace RetroGamesAuction1.Controllers
                 pr.Articul = product.Articul;
                 pr.Prise = product.Prise;
                 pr.Description = product.Description;
-                pr.ProductPic = product.ProductPic;
-                
+                string folder = "lib/product/";
+                //создали уникальное имя файла
+                folder += Guid.NewGuid().ToString() + pr.Photo1.FileName;
+                pr.ProductPic = folder;
+                string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                await pr.Photo1.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+
+                string folder1 = "lib/product/";
+                //создали уникальное имя файла
+                folder1 += Guid.NewGuid().ToString() + product.Photo2.FileName;
+                pr.ProductPic1 = folder1;
+                string serverFolder1 = Path.Combine(_webHostEnvironment.WebRootPath, folder1);
+                await pr.Photo2.CopyToAsync(new FileStream(serverFolder1, FileMode.Create));
+
+                string folder2 = "lib/product/";
+                //создали уникальное имя файла
+                folder2 += Guid.NewGuid().ToString() + pr.Photo3.FileName;
+                pr.ProductPic2 = folder2;
+                string serverFolder2 = Path.Combine(_webHostEnvironment.WebRootPath, folder2);
+                await pr.Photo3.CopyToAsync(new FileStream(serverFolder2, FileMode.Create));
+
+
                 _context.SaveChanges();
                 TempData["AlertMessage"] = "Продукт изменен!";
                 return RedirectToAction(nameof(Index));

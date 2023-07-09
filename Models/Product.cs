@@ -41,14 +41,24 @@ public partial class Product
     [StringLength(1000)]
     public string ProductPic { get; set; }
     
+    [Column("product_pic1")]
+    [StringLength(1000)]
+    public string ProductPic1 { get; set; }
+
+    [Column("product_pic2")]
+    [StringLength(1000)]
+    public string ProductPic2 { get; set; }
+
     [Column("Photo1")]
-    [Required]
     [Display(Name = "Выберите фотографию")]
+    [NotMapped]
     public IFormFile Photo1 { get; set; }
     [Column("Photo2")]
+    [NotMapped]
     [Display(Name = "Выберите фотографию")]
     public IFormFile Photo2 { get; set; }
     [Column("Photo3")]
+    [NotMapped]
     [Display(Name = "Выберите фотографию")]
     public IFormFile Photo3 { get; set; }
 

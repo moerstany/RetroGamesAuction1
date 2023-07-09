@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Migrations\" />
+    <Folder Include="wwwroot\lib\product\" />
     <Folder Include="wwwroot\Новая папка\" />
   </ItemGroup>
 
