@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h4>Товары</h4>
+<br />
+<h3>Товары</h3>
 
 
    
@@ -15,7 +15,7 @@
 </div>  
 }
 <br />
-<div>
+<div class="align-self-lg-center">
     @using (Html.BeginForm("Index", "Product", FormMethod.Get))
     {
         <table>
@@ -41,9 +41,9 @@
         </table>
     }
 </div>
-_
+<br />
  <a href="@Url.Action("Create","Product","Product")" class="btn btn-outline-primary">Создать</a>
--
+ <br />
 <table  id="table" class="table-rounded table-bordered col-sm-12" style="" >
     <thead>
         <tr>
@@ -87,9 +87,9 @@ _
                     <img src="@Html.DisplayFor(modelItem => item.ProductPic)" width="100" height="100" alt="картинка" />
                 </td>
                 <td> 
-                    
-                    |<a href="@Url.Action("Edit","Product",new {@id=item.IdProduct})" class="btn btn-outline-primary">Изменить</a>
-                    |<a href="@Url.Action("Delete","Product",new {@id=item.IdProduct})" class="btn btn-outline-danger" onclick="return confirm('Вы правда хотите удалить продукт? @item.ProductName?')">Удалить</a>
+                    <a href="@Url.Action("Edit","Product",new {@id=item.IdProduct})" class="btn btn-outline-primary col-12">Изменить</a>
+                    <hr />
+                    <a href="@Url.Action("Delete","Product",new {@id=item.IdProduct})" class="btn btn-outline-danger col-12" onclick="return confirm('Вы правда хотите удалить продукт? @item.ProductName?')">Удалить</a>
                 </td>
             </tr>
         }

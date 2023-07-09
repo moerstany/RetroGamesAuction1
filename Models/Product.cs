@@ -40,6 +40,17 @@ public partial class Product
     [Column("product_pic")]
     [StringLength(1000)]
     public string ProductPic { get; set; }
+    
+    [Column("Photo1")]
+    [Required]
+    [Display(Name = "Выберите фотографию")]
+    public IFormFile Photo1 { get; set; }
+    [Column("Photo2")]
+    [Display(Name = "Выберите фотографию")]
+    public IFormFile Photo2 { get; set; }
+    [Column("Photo3")]
+    [Display(Name = "Выберите фотографию")]
+    public IFormFile Photo3 { get; set; }
 
     [InverseProperty("IdProductNavigation")]
     public virtual ICollection<Auction> Auction { get; } = new List<Auction>();

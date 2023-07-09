@@ -1,14 +1,19 @@
 ﻿@model RetroGamesAuction1.Models.Product
+
 @{
-    ViewData["Title"] = "Create";
-    
+    ViewData["Title"] = "Edit";
+   
 }
-<h4>Cоздание товара</h4>
+
+<h3>Изменить товар</h3>
+
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post" enctype="multipart/form-data" asp-action="Create" asp-controller="Product">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdProduct" />
             <div class="form-group">
                 <label asp-for="ProductName" class="control-label"></label>
                 <input asp-for="ProductName" class="form-control" />
@@ -30,18 +35,13 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Photo1" class="control-label"></label>
-                <div class="custom-file">
-                    <input asp-for="Photo1" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Выбор файла</label>
-                    
-                </div>
-                <span asp-validation-for="Photo1" class="text-danger"></span>
+                <label asp-for="ProductPic" class="control-label"></label>
+                <input asp-for="ProductPic" class="form-control" />
+                <span asp-validation-for="ProductPic" class="text-danger"></span>
             </div>
             
-            -
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -56,3 +56,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
+

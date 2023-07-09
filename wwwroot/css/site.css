@@ -1,11 +1,43 @@
 ﻿@charset "UTF-8";
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu .submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -7px;
+}
+
+.dropdown-menu > li:hover > .submenu {
+  display: block;
+}
+
+.dropdown-menu .submenu-left {
+  right: 100%;
+  left: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .dropdown-menu .submenu {
+    left: 25%;
+    top: 0px;
+  }
+  .dropdown-menu .multi-menu {
+    left: 95%;
+  }
+  .dropdown-menu .submenu-left {
+    left: 50%;
+  }
+}
 html {
   font-size: 14px;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 html {
@@ -22,8 +54,8 @@ body {
   background-repeat: no-repeat;
   /* cвойство определяет, будет ли фоновое изображение прокручиваться 
   вместе с остальной частью страницы или будет фиксированным */
-  margin: 50px;
-  margin-right: 150px;
+  margin: 20px;
+  margin-right: 100px;
   padding: 0px;
   background-attachment: fixed;
   font-size: 16px;
@@ -35,19 +67,26 @@ body {
   background-color: black;
   opacity: 0.6;
   color: white;
+  max-height: 150px; /* height of the navbar */
+  box-shadow: 1px 2px 6px 2px rgb(247, 226, 151);
+}
+
+navbar-brand {
+  left: 15px;
 }
 
 #table {
-  background-color: blanchedalmond;
+  background-color: whitesmoke;
   opacity: 0.8;
   color: black;
   -webkit-box-shadow: 1px 1px 6px 2px rgb(247, 226, 151);
   -moz-box-shadow: 1px 1px 6px 2px rgb(247, 226, 151);
   box-shadow: 1px 2px 6px 2px rgb(247, 226, 151);
+  padding: 3px;
 }
 
 tr:hover {
-  background-color: sandybrown;
+  background-color: lavender;
 }
 
 #link1 {
@@ -65,7 +104,7 @@ tr:hover {
   bottom: -3px;
   width: 0;
   height: 2px; /* Высота линии */
-  background-color: black; /* Цвет подчеркивания при исчезании линии*/
+  background-color: dodgerblue; /* Цвет подчеркивания при исчезании линии*/
   transition: width 0.5s; /* Время эффекта */
 }
 
