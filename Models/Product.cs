@@ -37,14 +37,17 @@ public partial class Product
     [StringLength(1000)]
     public string Description { get; set; }
 
+    [Required]
     [Column("product_pic")]
     [StringLength(1000)]
     public string ProductPic { get; set; }
-    
+
+    [Required]
     [Column("product_pic1")]
     [StringLength(1000)]
     public string ProductPic1 { get; set; }
 
+    [Required]
     [Column("product_pic2")]
     [StringLength(1000)]
     public string ProductPic2 { get; set; }

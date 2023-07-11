@@ -118,26 +118,26 @@ namespace RetroGamesAuction1.Controllers
                 pr.Description = product.Description;
                 string folder = "lib/product/";
                 //создали уникальное имя файла
-                folder += Guid.NewGuid().ToString() + pr.Photo1.FileName;
-                pr.ProductPic = folder;
+                folder += Guid.NewGuid().ToString() + product.Photo1.FileName;
+                product.ProductPic = folder;
                 string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
-                await pr.Photo1.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                await product.Photo1.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
 
                 string folder1 = "lib/product/";
                 //создали уникальное имя файла
                 folder1 += Guid.NewGuid().ToString() + product.Photo2.FileName;
-                pr.ProductPic1 = folder1;
+                product.ProductPic1 = folder1;
                 string serverFolder1 = Path.Combine(_webHostEnvironment.WebRootPath, folder1);
-                await pr.Photo2.CopyToAsync(new FileStream(serverFolder1, FileMode.Create));
+                await product.Photo2.CopyToAsync(new FileStream(serverFolder1, FileMode.Create));
 
                 string folder2 = "lib/product/";
                 //создали уникальное имя файла
-                folder2 += Guid.NewGuid().ToString() + pr.Photo3.FileName;
-                pr.ProductPic2 = folder2;
+                folder2 += Guid.NewGuid().ToString() + product.Photo3.FileName;
+                product.ProductPic2 = folder2;
                 string serverFolder2 = Path.Combine(_webHostEnvironment.WebRootPath, folder2);
-                await pr.Photo3.CopyToAsync(new FileStream(serverFolder2, FileMode.Create));
-
-
+                pr.ProductPic1 = product.ProductPic1;
+                pr.ProductPic2 = product.ProductPic2;
+                pr.ProductPic = product.ProductPic;
                 _context.SaveChanges();
                 TempData["AlertMessage"] = "Продукт изменен!";
                 return RedirectToAction(nameof(Index));
