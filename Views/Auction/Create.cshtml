@@ -1,0 +1,53 @@
+﻿@model RetroGamesAuction1.Models.Auction
+@{
+    ViewData["Title"] = "Create";
+    
+}
+
+<h1>Создать</h1>
+
+
+<hr />
+<div class="card" id="card1" style="width: 35rem;"
+  <div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdProduct" class="control-label"></label>
+                <input asp-for="IdProduct" class="form-control" />
+                <span asp-validation-for="IdProduct" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beginbid" class="control-label"></label>
+                <input asp-for="Beginbid" class="form-control" />
+                <span asp-validation-for="Beginbid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Begintime" class="control-label"></label>
+                <input asp-for="Begintime" class="form-control" />
+                <span asp-validation-for="Begintime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Endtime" class="control-label"></label>
+                <input asp-for="Endtime" class="form-control" />
+                <span asp-validation-for="Endtime" class="text-danger"></span>
+            </div>
+
+            -
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+<div>
+    <a asp-action="Index" id="link1">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

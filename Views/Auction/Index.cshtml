@@ -1,0 +1,61 @@
+﻿@model IEnumerable<RetroGamesAuction1.Models.ViewModel.ListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    
+}
+  
+@if (@TempData["AlertMessage"] != null)
+{
+  <div class="alert alert-secondary">
+    <strong>Ура! </strong>@TempData["AlertMessage"]
+</div>  
+}
+<br />
+<div>
+    @using (Html.BeginForm("Index", "Catalog1", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>
+                    <span><b>Поиск по: </b></span>
+                    @Html.RadioButton("searchBy","ProductName",true)
+                    <text>Название продукта</text>
+                    @Html.RadioButton("searchBy","Articul",true)
+                    <text>Артикул</text>
+                    @Html.RadioButton("searchBy","Price")
+                    <text>Начальная ставка</text>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("searchValue",null,new {Class = "form-control",placeholder = "Введите значение поиска"})
+                </td>
+                <td>
+                    <input type="submit" value="Поиск" class="btn btn-outline-success"/>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<a href="@Url.Action("Create","Auction","Auction")" class="btn btn-outline-secondary">Создать</a>
+-
+
+<div class="row">
+		@foreach (var item in Model)
+		{
+			<div class="card p-3 m-3 col-4" id="card1">
+				<img src="@item.ProductPic" class="card-img-top" alt="...">
+				<div class="card-body">
+                    <p class="card-text">Артикул: @item.Articul</p>
+					<h5 class="card-title">@item.ProductName</h5>
+					<p class="card-text">@item.Description</p>
+                    <h5 class="card-title">Начальная ставка @item.Beginbid  руб.</h5>
+                    <p class="card-title">окончание @item.Date1 аукциона</p>
+                <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Поставить</a>
+                <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Подробности</a>
+				</div>
+			</div>
+			
+		}
+
+</div>

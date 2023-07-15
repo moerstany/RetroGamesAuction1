@@ -47,6 +47,10 @@
 <table  id="table" class="table-rounded table-bordered col-sm-12" style="" >
     <thead>
         <tr>
+             <th scope ="col">
+                Id
+            </th scope ="col">
+
             <th scope ="col">
                 Продукт
             </th scope ="col">
@@ -71,6 +75,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProduct)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
