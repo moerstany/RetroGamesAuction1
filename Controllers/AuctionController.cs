@@ -67,6 +67,35 @@ namespace RetroGamesAuction1.Controllers
             }
             return View(data);
         }
+        public IActionResult Details (int id)
+        {
+           
+            var data = (from c in _context.Auction
+                        join p in _context.Product
+                        on c.IdProduct equals p.IdProduct
+                        select new ListViewModel
+                        {
+                            IdAuction = c.IdAuction,
+                            IdProduct = p.IdProduct,
+                            ProductName = p.ProductName,
+                            Articul = p.Articul,
+                            Prise = p.Prise,
+                            Description = p.Description,
+                            ProductPic = p.ProductPic,
+                            ProductPic1 = p.ProductPic1,
+                            ProductPic2 = p.ProductPic2,
+                            Beginbid = c.Beginbid,
+                            Begintime = c.Begintime,
+                            Endtime = c.Endtime
+
+
+
+                        }).ToList();
+
+
+
+            return View(data);
+        }
 
         [HttpGet]
         public IActionResult Create()

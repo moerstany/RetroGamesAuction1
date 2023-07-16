@@ -37,7 +37,7 @@
         </table>
     }
 </div>
-<a href="@Url.Action("Create","Auction","Auction")" class="btn btn-outline-secondary">Создать</a>
+<a href="@Url.Action("Create","Auction","Auction")" class="btn btn-outline-primary">Создать</a>
 -
 
 <div class="row">
@@ -50,9 +50,12 @@
 					<h5 class="card-title">@item.ProductName</h5>
 					<p class="card-text">@item.Description</p>
                     <h5 class="card-title">Начальная ставка @item.Beginbid  руб.</h5>
+                   @if(@item.Endtime>item.DateTime ){
                     <p class="card-title">окончание @item.Date1 аукциона</p>
+                   }
+                   <p class="card-title">аукцион закончен</p>
                 <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Поставить</a>
-                <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Подробности</a>
+                <a href="@Url.Action("Details","Auction","Auction")" class="btn btn-outline-primary">Подробности</a>
 				</div>
 			</div>
 			

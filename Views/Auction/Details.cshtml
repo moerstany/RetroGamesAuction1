@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RetroGamesAuction1.Models.ViewModel.ListViewModel>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div id="carousel" class="carousel slide rounded col-md-6">
+
+        <div class="carousel-inner border-info mb-3 p-3 rounded ">
+            <div class="carousel-item active">
+                <img src="@item.ProductPic" class="d-block rounded " alt="товар">
+            </div>
+            <div class="carousel-item">
+                <img src="@item.ProductPic1" class="d-block rounded" alt="товар">
+            </div>
+            <div class="carousel-item">
+                <img src="@item.ProductPic2" class="d-block rounded" alt="товар">
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+}
+
+
+
