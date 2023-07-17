@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
-@model IEnumerable<IdentityRole>
+﻿
+@model IEnumerable<RetroGamesAuction1.Models.ViewModel.ListViewModel1>
 
 @{
     ViewData["Title"] = "Роли";
@@ -14,14 +14,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID роли
             </th>
-        
+            <th>
+                Название роли
+            </th>
+            <th>
+               ID пользователя
+            </th>
         
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Имя
             </th>
-            <th></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -29,11 +34,19 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem=>item.Id)
+                    @Html.DisplayFor(modelItem=>item.RoleId)
                 </td>
                     <td>
-                    @Html.DisplayFor(modelItem=>item.Name)
+                    @Html.DisplayFor(modelItem=>item.RoleName)
                     </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.UserId)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem=>item.UserName)
+
+                </td>
             </tr>
         }
     </tbody>

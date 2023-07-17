@@ -10,7 +10,8 @@ namespace RetroGamesAuction1.Data
             : base(options)
         {
         }
-       
-        
+        //public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+       // public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+
     }
 }
