@@ -3,7 +3,9 @@
     ViewData["Title"] = "Index";
     
 }
-  
+<header>
+    <meta http-equiv="refresh" content="2">
+</header>
 @if (@TempData["AlertMessage"] != null)
 {
   <div class="alert alert-secondary">
@@ -12,7 +14,7 @@
 }
 <br />
 <div>
-    @using (Html.BeginForm("Index", "Catalog1", FormMethod.Get))
+    @using (Html.BeginForm("Index", "Auction", FormMethod.Get))
     {
         <table>
             <tr>
@@ -50,10 +52,21 @@
 					<h5 class="card-title">@item.ProductName</h5>
 					<p class="card-text">@item.Description</p>
                     <h5 class="card-title">Начальная ставка @item.Beginbid  руб.</h5>
-                   @if(@item.Endtime>item.DateTime ){
-                    <p class="card-title">окончание @item.Date1 аукциона</p>
-                   }
-                   <p class="card-title">аукцион закончен</p>
+
+                @if (@item.Endtime > item.DateTime)
+                {
+                    <p class="card-title" id="date1">время до окончания @item.Date1</p>
+                }
+
+                @if (@item.Endtime == item.DateTime)
+               {
+                <p class="card-title" id="date1">Аукцион окончен</p>
+                }
+                @if (@item.Endtime < item.DateTime)
+                {
+                    <p class="card-title" id="date1">Аукцион окончен</p>
+                }
+                
                 <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Поставить</a>
                 <a href="@Url.Action("Details","Auction","Auction")" class="btn btn-outline-primary">Подробности</a>
 				</div>

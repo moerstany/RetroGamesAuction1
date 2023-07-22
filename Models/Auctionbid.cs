@@ -26,7 +26,7 @@ public partial class Auctionbid
     public int Bid { get; set; }
 
     [Column("datatime", TypeName = "timestamp without time zone")]
-    public DateTime? Datatime { get; set; }
+    public DateTime? Datatime { get; set; } = DateTime.UtcNow;
 
     [ForeignKey("IdClient")]
     [InverseProperty("Auctionbid")]

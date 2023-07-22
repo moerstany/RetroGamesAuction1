@@ -29,7 +29,7 @@ public partial class Auction
     [NotMapped]
     public DateTime DateTime { get; set; } = DateTime.Now;
     [NotMapped]
-    public TimeSpan? Date1 { get; set; }
+    public TimeSpan Date1 { get; set; }
     [ForeignKey("IdProduct")]
     [InverseProperty("Auction")]
     public virtual Product IdProductNavigation { get; set; }

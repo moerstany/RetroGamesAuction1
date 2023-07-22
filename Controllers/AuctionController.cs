@@ -37,10 +37,13 @@ namespace RetroGamesAuction1.Controllers
                             Beginbid = c.Beginbid,
                             Begintime = c.Begintime,
                             Endtime = c.Endtime,
-                            Date1 = c.Endtime - c.DateTime
+                          
+                            Date1 = c.Endtime - c.DateTime                           
 
 
-                        }).ToList();
+                        }
+                        
+                        ).ToList();
 
             if (string.IsNullOrEmpty(searchValue))
             {
@@ -92,8 +95,7 @@ namespace RetroGamesAuction1.Controllers
 
                         }).ToList();
 
-
-
+           
             return View(data);
         }
 
