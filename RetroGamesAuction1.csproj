@@ -29,6 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Client\Controllers\" />
+    <Folder Include="Areas\Client\Data\" />
+    <Folder Include="Areas\Client\Models\" />
+    <Folder Include="Areas\Client\Views\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\lib\product\" />
     <Folder Include="wwwroot\Новая папка\" />

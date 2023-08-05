@@ -55,7 +55,9 @@
 
                 @if (@item.Endtime > item.DateTime)
                 {
-                    <p class="card-title" id="date1">время до окончания @item.Date1</p>
+                    <p class="card-text">время до окончания аукциона:</p> 
+                    <p class="time-text">@item.Date1.Value.Days д.д @item.Date1.Value.Hours ч.ч @item.Date1.Value.Minutes м.м @item.Date1.Value.Seconds с.с</p>
+                    
                 }
 
                 @if (@item.Endtime == item.DateTime)
@@ -66,7 +68,7 @@
                 {
                     <p class="card-title" id="date1">Аукцион окончен</p>
                 }
-                
+                <br>
                 <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Поставить</a>
                 <a href="@Url.Action("Details","Auction","Auction")" class="btn btn-outline-primary">Подробности</a>
 				</div>

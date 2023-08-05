@@ -7,6 +7,7 @@ using RetroGamesAuction1.Data;
 
 namespace RetroGamesAuction1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RolesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -44,11 +45,13 @@ namespace RetroGamesAuction1.Controllers
         }
         [HttpPost]
         public async Task<IActionResult>Create(IdentityRole model) 
-        { 
-         if(!_roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
-            {
-            _roleManager.CreateAsync(new IdentityRole(model.Name)).GetAwaiter().GetResult();
-            }
+        {
+            
+                if (!_roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
+                {
+                    _roleManager.CreateAsync(new IdentityRole(model.Name)).GetAwaiter().GetResult();
+                }
+            
             return RedirectToAction("Index");
         }
     }

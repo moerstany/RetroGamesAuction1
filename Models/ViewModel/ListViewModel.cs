@@ -17,7 +17,8 @@ namespace RetroGamesAuction1.Models.ViewModel
         [NotMapped]
         public DateTime DateTime { get; set; } = DateTime.Now;
         [NotMapped]
-        public TimeSpan? Date1 { get; set; } 
+        public TimeSpan? Date1 { get; set; }
+        
         public string ProductPic { get; set; }        
         public string ProductPic1 { get; set; }        
         public string ProductPic2 { get; set; }

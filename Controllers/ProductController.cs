@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RetroGamesAuction1.Data;
 using RetroGamesAuction1.Models;
+using System.Data;
 
 namespace RetroGamesAuction1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         

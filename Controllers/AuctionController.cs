@@ -7,9 +7,12 @@ using NuGet.Packaging.Signing;
 using System;
 using System.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace RetroGamesAuction1.Controllers
 {
+    [Authorize]
     public class AuctionController : Controller
     {
         

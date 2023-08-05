@@ -132,3 +132,9 @@ tr:hover {
   background-color: red; /* Цвет подчеркивания при появлении линии*/
   transition: width 0.5s; /* Время эффекта */
 }
+
+.time-text {
+  font-size: 14px;
+  color: red;
+  font-weight: 600;
+}
