@@ -55,6 +55,36 @@ namespace RetroGamesAuction1.Controllers
             }
             return View(_auctionService.SelectAuction());
         }
+        public ActionResult AllIndex(string searchBy, string searchValue)
+
+        {
+
+            if (string.IsNullOrEmpty(searchValue))
+            {
+                TempData["InfoMessage"] = "Введите значение для поиска";
+                return View(_auctionService.SelectAuction());
+            }
+            else
+            {
+                if (searchBy.ToLower() == "productname")
+                {
+                    var searchByProductName = _auctionService.SelectAuction().Where(p => p.ProductName.ToLower().Contains(searchValue.ToLower()));
+                    return View(searchByProductName);
+                }
+                else if (searchBy.ToLower() == "articul")
+                {
+                    var searchByProductArticul = _auctionService.SelectAuction().Where(p => p.Articul.ToLower().Contains(searchValue.ToLower()));
+                    return View(searchByProductArticul);
+                }
+                else if (searchBy.ToLower() == "beginbid")
+                {
+                    var searchByProductCost = _auctionService.SelectAuction().Where(c => c.Beginbid == int.Parse(searchValue));
+                    return View(searchByProductCost);
+                }
+            }
+            return View(_auctionService.SelectAuction());
+        }
+       
         public IActionResult Details (int id)
         {
            
@@ -98,39 +128,26 @@ namespace RetroGamesAuction1.Controllers
         public IActionResult Create(Auction auction)
         {
             _auctionService.SaveAuction(auction);
-            TempData["AlertMessage"] = "Товар Создан!";
-            return RedirectToAction("index");
+            TempData["AlertMessage"] = "Ayкцион Создан!";
+            return RedirectToAction(nameof(AllIndex));
         }
 
-        // GET: ProductController/Edit/5
+        // GET: AuctionController/Edit/5
         public ActionResult Edit(int id)
         {
-
-            Auction catalog = _context.Auction.Find(id);
-            return View(catalog);
+            var auction = _auctionService.GetAuctionByID(id);
+            return View(auction);
         }
 
-        // POST: FacturaController/Edit/5
+        // POST: AuctionController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Auction catalog)
+        public ActionResult Edit(Auction auction)
         {
-            try
-            {
-                Auction pr = _context.Auction.Find(catalog.IdAuction);
-                pr.IdAuction = catalog.IdAuction;
-                pr.Beginbid = catalog.Beginbid;
-                pr.Begintime = catalog.Begintime;
-                pr.Endtime = catalog.Endtime;
-                _context.SaveChanges();
-                TempData["AlertMessage"] = "Товар изменен!";
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-
-                return View();
-            }
+            _auctionService.UpdateAuction(auction);
+            TempData["AlertMessage"] = "Аукцион изменен!";
+            
+            return RedirectToAction(nameof(AllIndex));
         }
 
         // GET: ProductController/Delete/5
@@ -138,8 +155,8 @@ namespace RetroGamesAuction1.Controllers
         {
             _context.Auction.Remove(_context.Auction.Find(id));
             _context.SaveChanges();
-            TempData["AlertMessage"] = "Товар удален!";
-            return RedirectToAction(nameof(Index));
+            TempData["AlertMessage"] = "Aукцион удален!";
+            return RedirectToAction(nameof(AllIndex));
         }
 
         // POST: ProductController/Delete/5

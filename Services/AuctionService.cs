@@ -13,12 +13,26 @@ namespace RetroGamesAuction1.Services
             
         }
 
+        public Auction GetAuctionByID(int id)
+        {
+           return _context.Auction.Find(id);
+            
+
+        }
+
         public void SaveAuction(Auction auction)
             {
             _context.Auction.Add(auction);
             _context.SaveChanges();
                 
             }
+
+        public void UpdateAuction(Auction auction)
+        {
+            _context.Update(auction);   
+            _context.SaveChanges();
+
+        }
         public IEnumerable<ListViewModel> SelectAuction()
         {
             var data = (from c in _context.Auction
@@ -44,6 +58,8 @@ namespace RetroGamesAuction1.Services
                         ).ToList();
             return data;
         }
+
+
     }
 }
 

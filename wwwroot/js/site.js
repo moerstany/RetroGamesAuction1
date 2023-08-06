@@ -8,20 +8,16 @@ window.setTimeout(function () {
     $(".alert").fadeTo(500, 0).slideUp(500, function () {
         $(this).remove();
     });
-}, 8000);
+}, 6000);
 
 
+@(document).ready(function () {
+    setInterval(clock, 1000);
+    clock();
+})
 
 // Update the count down every 1 second
-var x = setInterval(function () {
-    let $elem = document.querySelector('.date1');
-    let textByTextContent = $elem.textContent; // 
+function clock() {
     
-    
-
-    // Output the result in an element with id="demo"
-    document.getElementById($elem.textContent).innerHTML;
-
-    
-    }
-}, 1000);
+    document.getElementById('time-text').innerHTML(HTMLObjectElement);
+}
