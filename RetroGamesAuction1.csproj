@@ -38,6 +38,7 @@
     <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\lib\product\" />
     <Folder Include="wwwroot\Новая папка\" />
+    <Folder Include="Новая папка2\" />
     <Folder Include="Новая папка\" />
   </ItemGroup>
 

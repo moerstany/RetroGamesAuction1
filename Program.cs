@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RetroGamesAuction1.Data;
 using RetroGamesAuction1.Models;
-using RetroGamesAuction1.Repositories;
+
 using RetroGamesAuction1.Areas;
+using RetroGamesAuction1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +24,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+//builder.Services.AddTransient<AuctionService>();
+//builder.Services.AddSingleton<AuctionService>();
+builder.Services.AddScoped<AuctionService>();
 
-builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
+
 var app = builder.Build();
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);

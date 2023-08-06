@@ -9,6 +9,7 @@ using System.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.AspNetCore.Authorization;
 using System.Data;
+using RetroGamesAuction1.Services;
 
 namespace RetroGamesAuction1.Controllers
 {
@@ -17,61 +18,42 @@ namespace RetroGamesAuction1.Controllers
     {
         
         private readonly DataApplicationDbContext _context;
-        public AuctionController(DataApplicationDbContext context)
+        private readonly AuctionService _auctionService;
+        public AuctionController(DataApplicationDbContext context, AuctionService auctionService)
         {
             _context = context;
+            _auctionService = auctionService;
         }
 
         // GET: Catalog1Controller
         public ActionResult Index(string searchBy, string searchValue)
 
         {
-            var data = (from c in _context.Auction
-                        join p in _context.Product
-                        on c.IdProduct equals p.IdProduct
-                        select new ListViewModel
-                        {
-                            IdAuction = c.IdAuction,
-                            ProductName = p.ProductName,
-                            Articul = p.Articul,
-                            Prise = p.Prise,
-                            Description = p.Description,
-                            ProductPic = p.ProductPic,
-                            Beginbid = c.Beginbid,
-                            Begintime = c.Begintime,
-                            Endtime = c.Endtime,
-                          
-                            Date1 = c.Endtime - c.DateTime                           
-
-
-                        }
-                        
-                        ).ToList();
-
+           
             if (string.IsNullOrEmpty(searchValue))
             {
                 TempData["InfoMessage"] = "Введите значение для поиска";
-                return View(data);
+                return View(_auctionService.SelectAuction());
             }
             else
             {
                 if (searchBy.ToLower() == "productname")
                 {
-                    var searchByProductName = data.Where(p => p.ProductName.ToLower().Contains(searchValue.ToLower()));
+                    var searchByProductName = _auctionService.SelectAuction().Where(p => p.ProductName.ToLower().Contains(searchValue.ToLower()));
                     return View(searchByProductName);
                 }
                 else if (searchBy.ToLower() == "articul")
                 {
-                    var searchByProductArticul = data.Where(p => p.Articul.ToLower().Contains(searchValue.ToLower()));
+                    var searchByProductArticul = _auctionService.SelectAuction().Where(p => p.Articul.ToLower().Contains(searchValue.ToLower()));
                     return View(searchByProductArticul);
                 }
                 else if (searchBy.ToLower() == "beginbid")
                 {
-                    var searchByProductCost = data.Where(p => p.Beginbid == int.Parse(searchValue));
+                    var searchByProductCost = _auctionService.SelectAuction().Where(c => c.Beginbid == int.Parse(searchValue));
                     return View(searchByProductCost);
                 }
             }
-            return View(data);
+            return View(_auctionService.SelectAuction());
         }
         public IActionResult Details (int id)
         {
@@ -105,18 +87,17 @@ namespace RetroGamesAuction1.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            Auction catalog = new Auction();
+            Auction auction = new Auction();
 
-            return View(catalog);
+            return View(auction);
         }
 
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Auction catalog)
+        public IActionResult Create(Auction auction)
         {
-            _context.Add(catalog);
-            _context.SaveChanges();
+            _auctionService.SaveAuction(auction);
             TempData["AlertMessage"] = "Товар Создан!";
             return RedirectToAction("index");
         }

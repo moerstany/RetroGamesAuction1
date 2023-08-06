@@ -4,7 +4,7 @@
     
 }
 <header>
-    <meta http-equiv="refresh" content="2">
+    @* <meta http-equiv="refresh" content="2">*@
 </header>
 @if (@TempData["AlertMessage"] != null)
 {
@@ -24,7 +24,7 @@
                     <text>Название продукта</text>
                     @Html.RadioButton("searchBy","Articul",true)
                     <text>Артикул</text>
-                    @Html.RadioButton("searchBy","Price")
+                    @Html.RadioButton("searchBy","BeginBid")
                     <text>Начальная ставка</text>
                 </td>
             </tr>
