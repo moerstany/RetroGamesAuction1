@@ -17,11 +17,11 @@ namespace RetroGamesAuction1.Controllers
     public class AuctionController : Controller
     {
         
-        private readonly DataApplicationDbContext _context;
+        
         private readonly AuctionService _auctionService;
-        public AuctionController(DataApplicationDbContext context, AuctionService auctionService)
+        public AuctionController( AuctionService auctionService)
         {
-            _context = context;
+           
             _auctionService = auctionService;
         }
 
@@ -84,34 +84,12 @@ namespace RetroGamesAuction1.Controllers
             }
             return View(_auctionService.SelectAuction());
         }
-       
-        public IActionResult Details (int id)
+
+        public ActionResult Details(int id)
         {
-           
-            var data = (from c in _context.Auction
-                        join p in _context.Product
-                        on c.IdProduct equals p.IdProduct
-                        select new ListViewModel
-                        {
-                            IdAuction = c.IdAuction,
-                            IdProduct = p.IdProduct,
-                            ProductName = p.ProductName,
-                            Articul = p.Articul,
-                            Prise = p.Prise,
-                            Description = p.Description,
-                            ProductPic = p.ProductPic,
-                            ProductPic1 = p.ProductPic1,
-                            ProductPic2 = p.ProductPic2,
-                            Beginbid = c.Beginbid,
-                            Begintime = c.Begintime,
-                            Endtime = c.Endtime
-
-
-
-                        }).ToList();
-
-           
-            return View(data);
+            _auctionService.SelectAuctionById(id);
+            
+            return View(_auctionService.SelectAuctionById(id));
         }
 
         [HttpGet]
@@ -138,7 +116,7 @@ namespace RetroGamesAuction1.Controllers
             var auction = _auctionService.GetAuctionByID(id);
             return View(auction);
         }
-
+       
         // POST: AuctionController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -153,8 +131,7 @@ namespace RetroGamesAuction1.Controllers
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
-            _context.Auction.Remove(_context.Auction.Find(id));
-            _context.SaveChanges();
+            _auctionService.RemoveAuction(id);
             TempData["AlertMessage"] = "Aукцион удален!";
             return RedirectToAction(nameof(AllIndex));
         }
