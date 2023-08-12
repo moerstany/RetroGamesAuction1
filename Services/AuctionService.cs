@@ -77,6 +77,8 @@ namespace RetroGamesAuction1.Services
                             Prise = p.Prise,
                             Description = p.Description,
                             ProductPic = p.ProductPic,
+                            ProductPic1 = p.ProductPic1,
+                            ProductPic2 = p.ProductPic2,
                             Beginbid = c.Beginbid,
                             Begintime = c.Begintime,
                             Endtime = c.Endtime,

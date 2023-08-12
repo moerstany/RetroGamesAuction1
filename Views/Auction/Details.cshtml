@@ -3,13 +3,30 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<head>
+    <script src="/js/site.js"></script>
+</head>
 
 @foreach (var item in Model)
 {
-   
+    <div class="container-fluid">
+        <div id="MainImageConteiner" class="card col-md-10">
+            <img id="MainImage" src="/@item.ProductPic" />
+       </div>
+        <div id="TrumbNailMainConteiner">
+            <div class="TrumbConteiner">
+                  <img  src="/@item.ProductPic" class="TrumbImage"/>
+            </div>
+            <div class="TrumbConteiner">
+                <img src="/@item.ProductPic1" class="TrumbImage" />
+            </div>
+            <div class="TrumbConteiner">
+                <img src="/@item.ProductPic2" class="TrumbImage" />
+            </div>
+        </div>
+   </div>
 
-      <div id="carousel" class="carousel slide rounded col-md-6">
+     @* <div id="carousel" class="carousel slide rounded col-md-6">
 
         <div class="carousel-inner border-info mb-3 p-3 rounded ">
             <div class="carousel-item active">
@@ -31,7 +48,8 @@
             </button>
         </div>
 
-    </div>
+    </div>*@
+    <script src="/js/site.js"></script>
 }
 
 

@@ -5,7 +5,7 @@
 }
 <header>
     <script src="/js/site.js"></script>
-    @* <meta http-equiv="refresh" content="2">*@
+    @*<meta http-equiv="refresh" content="2">*@
 </header>
 @if (@TempData["AlertMessage"] != null)
 {
@@ -40,14 +40,14 @@
         </table>
     }
 </div>
-<a href="@Url.Action("Create","Auction","Auction")" class="btn btn-outline-primary">Создать</a>
--
+
+<br />
 
 <div class="row">
 		@foreach (var item in Model)
 		{
 			<div class="card p-3 m-3 col-4" id="card1">
-				<img src="@item.ProductPic" class="card-img-top" alt="...">
+				<img  src="@item.ProductPic" class="card-img-top" alt="...">
 				<div class="card-body">
                     <p class="card-text">Артикул: @item.Articul</p>
 					<h5 class="card-title">@item.ProductName</h5>
@@ -56,8 +56,8 @@
 
                 @if (@item.Endtime > item.DateTime)
                 {
-                    <p class="card-text">время до окончания аукциона:</p> 
-                    <p class="time-text" id="time-text">@item.Date1.Value.Days д.д @item.Date1.Value.Hours ч.ч @item.Date1.Value.Minutes м.м @item.Date1.Value.Seconds с.с</p>
+                    <p class="card-text">время до окончания аукциона:</p>
+                    <p  class="time-text" id="time-text">@item.Date1.Value.Days д.д @item.Date1.Value.Hours ч.ч @item.Date1.Value.Minutes м.м @item.Date1.Value.Seconds с.с</p>
                     
                 }
 
@@ -78,3 +78,5 @@
 		}
 
 </div>
+
+<script src="/js/site.js"></script>
