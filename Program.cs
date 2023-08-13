@@ -24,6 +24,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>().AddDefaultTokenProviders()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddSwaggerGen();
 //builder.Services.AddTransient<AuctionService>();
 //builder.Services.AddSingleton<AuctionService>();
 builder.Services.AddScoped<AuctionService>();
@@ -31,6 +32,12 @@ builder.Services.AddScoped<AuctionService>();
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Auction1");
+}
+);
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

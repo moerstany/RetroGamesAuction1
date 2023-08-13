@@ -153,11 +153,49 @@ namespace RetroGamesAuction1.Controllers
         }
 
         // GET: ProductController/Delete/5
-        public ActionResult Delete(int id)
+        public  ActionResult Delete(int id)
         {
-            _context.Product.Remove(_context.Product.Find(id));
-            _context.SaveChanges();
-            TempData["AlertMessage"] = "Продукт удален!";
+            if (id == 0)
+            { return NotFound(); }
+            else
+            {
+                var data = _context.Product.Find(id);
+                if(data != null)
+                {
+                    string deleteFromFolder = Path.Combine(_webHostEnvironment.WebRootPath);
+                    string currentImage = Path.Combine(deleteFromFolder, data.ProductPic);
+                    string currentImage1 = Path.Combine(deleteFromFolder, data.ProductPic1);
+                    string currentImage2 = Path.Combine(deleteFromFolder, data.ProductPic2);
+                    if (currentImage != null)
+                    {
+                        if(System.IO.File.Exists(currentImage))
+                        {
+                             System.IO.File.Delete(currentImage);
+                        }
+                    }
+
+                    if (currentImage != null)
+                    {
+                        if (System.IO.File.Exists(currentImage1))
+                        {
+                            System.IO.File.Delete(currentImage1);
+                        }
+                    }
+
+                    if (currentImage != null)
+                    {
+                        if (System.IO.File.Exists(currentImage2))
+                        {
+                            System.IO.File.Delete(currentImage2);
+                        }
+                    }
+                }
+                _context.Product.Remove(data);
+                _context.SaveChanges();
+                TempData["AlertMessage"] = "Продукт удален!";
+
+            }
+            
             return RedirectToAction(nameof(Index));
         }
 

@@ -10,6 +10,18 @@
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\fone1.jpg" />
+    <Content Remove="wwwroot\lib\product\0e65082b-9789-47db-a493-4e5d217a277ahorde2.jpg" />
+    <Content Remove="wwwroot\lib\product\25acc0e6-ac99-4ac6-a067-8fd263084d17horde3.jpg" />
+    <Content Remove="wwwroot\lib\product\446c8c02-7da1-4749-8c8c-9904ffad9052horde1.jpg" />
+    <Content Remove="wwwroot\lib\product\525925f1-f79e-47e0-bd76-5285e4f8b293horde3.jpg" />
+    <Content Remove="wwwroot\lib\product\5c225878-ea45-435f-840f-abc495701a96horde2.jpg" />
+    <Content Remove="wwwroot\lib\product\60470275-70fb-4a93-b334-8f8a8bba3515horde1.jpg" />
+    <Content Remove="wwwroot\lib\product\69e9869a-c917-4c96-af9c-424f82d4318ehorde4.jpg" />
+    <Content Remove="wwwroot\lib\product\7fcaf4c5-0bd5-48ab-b07b-0117f414d685horde3.jpg" />
+    <Content Remove="wwwroot\lib\product\b34f1e00-45a1-4d4d-81c6-9ff17a737e89horde4.jpg" />
+    <Content Remove="wwwroot\lib\product\cb7fff7a-5661-4e49-80c3-0d079142e297horde4.jpg" />
+    <Content Remove="wwwroot\lib\product\da952f13-f030-4448-b294-937f1b3c9533horde1.jpg" />
+    <Content Remove="wwwroot\lib\product\e9a612c1-9db7-4ab1-a218-176ccad6e62ahorde2.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +38,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.8" />
     <PackageReference Include="Npgsql.DependencyInjection" Version="7.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>

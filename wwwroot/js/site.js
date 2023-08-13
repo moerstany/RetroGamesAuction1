@@ -36,3 +36,25 @@ $(function () {
         $(this).animate({ height: '-=10', width: '-=10' });
     });
 });
+
+//слайды карусели меняют цвет обводки
+$(document).ready(function () {
+    $('.TrumbConteiner img').on({
+        mousemove: function () {
+            $(this).css({
+                'cursor': 'pointer',
+                'border': '6px solid grey'
+            });
+        },
+        mouseout: function () {
+            $(this).css({
+                'cursor': 'pointer',
+                'border': '6px solid #c0c0c0'
+            });
+        },
+        click: function () {
+            var x = $(this).attr('src');
+            $('#MainImage').attr('src', x);
+        }
+    });
+});

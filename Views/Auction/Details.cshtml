@@ -9,7 +9,17 @@
 
 @foreach (var item in Model)
 {
-    <div class="container-fluid">
+    <div class="card col-md-10" id="card1">
+    <div class="DescriptionContainer">
+    <div class="card col-md-5" id="card1">
+        <h5 class="card-title">@item.ProductName</h5>
+        <p class="card-text">@item.Description</p>
+            </div>
+          <div class="card col-md-5" id="card1">
+                <h5 class="card-title">@item.ProductName</h5>
+                <p class="card-text">@item.Description</p>
+           </div>
+    </div>
         <div id="MainImageConteiner" class="card col-md-10">
             <img id="MainImage" src="/@item.ProductPic" />
        </div>
@@ -24,7 +34,8 @@
                 <img src="/@item.ProductPic2" class="TrumbImage" />
             </div>
         </div>
-   </div>
+
+    </div>
 
      @* <div id="carousel" class="carousel slide rounded col-md-6">
 
