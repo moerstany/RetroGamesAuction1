@@ -10,6 +10,11 @@ namespace RetroGamesAuction1.Models;
 
 public partial class AspNetUsers
 {
+    public AspNetUsers()
+    {
+        Auctionbid = new HashSet<Auctionbid>();
+
+    }
     [Key]
     [StringLength(450)]
     public string Id { get; set; }

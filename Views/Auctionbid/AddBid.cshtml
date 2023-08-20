@@ -17,9 +17,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             
             <div class="form-group">
-                <label asp-for="Bid" class="control-label"></label>
-                <input asp-for="Bid" class="form-control" />
-                <span asp-validation-for="Bid" class="text-danger"></span>
+                <label asp-for="Bid" class="control-label">Поставить на 50р больше последней ставки </label>
+                <select multiple class="form-control" asp-for="Bid">
+                    <option>на 50рублей</option>
+
+                </select>
             </div>
             
 
@@ -32,7 +34,7 @@
   </div>
 </div>
 <div>
-    <a asp-action="Index" id="link1">Вернуться</a>
+    <a asp-action="Index" asp-controller="Auction" asp-route-id="@Model.IdAuction" id="link1">Вернуться</a>
 </div>
 
 @section Scripts {

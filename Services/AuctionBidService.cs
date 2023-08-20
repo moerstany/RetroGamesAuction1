@@ -11,10 +11,10 @@ namespace RetroGamesAuction1.Services
             _context = context;
 
         }
-        public bool AddBids(Auctionbid bid)
+        public bool AddBids(Auctionbid auctionbid)
         {
-            _context.Auctionbid.Add(bid);
-            return _context.SaveChanges() > 0;
+            _context.Auctionbid.Add(auctionbid);
+             return _context.SaveChanges() > 0 ;
         }
     }
 }

@@ -8,34 +8,34 @@ using Microsoft.EntityFrameworkCore;
 
 namespace RetroGamesAuction1.Models;
 
-[Table("auctionbid")]
-public partial class Auctionbid
-{
-    [Key]
-    [Column("id_auctionbid")]
-    public int IdAuctionbid { get; set; }
 
-    [Column("id_auction")]
-    public int? IdAuction { get; set; }
+    [Table("auctionbid")]
+    public partial class Auctionbid
+    {
+        [Key]
+        [Column("id_auctionbid")]
+        public int IdAuctionbid { get; set; }
 
-    [Column("id_client")]
-    [StringLength(450)]
-    public string IdClient { get; set; }
+        [Column("id_auction")]
+        public int? IdAuction { get; set; }
 
-    [Column("bid")]
-    public int Bid { get; set; }
+        [Column("id_client")]
+        [StringLength(450)]
+        public string IdClient { get; set; }
 
-    [Column("datatime", TypeName = "timestamp without time zone")]
-    public DateTime? Datatime { get; set; } = DateTime.Now;
+        [Column("bid")]
+        public int Bid { get; set; }
 
-    [ForeignKey("IdClient")]
-    [InverseProperty("Auctionbid")]
-    public virtual AspNetUsers IdClientNavigation { get; set; }
+        [Column("datatime", TypeName = "timestamp without time zone")]
+        public DateTime? Datatime { get; set; }
 
-    [ForeignKey("IdAuction")]
-    [InverseProperty("Auctionbid")]
-    public virtual Auction IdAuctionNavigation { get; set; }
-    
-    public Auction Auction { get; set; }
-    public AspNetUsers AspNetUsers { get; set; }
-}
+        [ForeignKey("IdAuction")]
+        [InverseProperty("Auctionbid")]
+        public virtual Auction IdAuctionNavigation { get; set; }
+
+        [ForeignKey("IdClient")]
+        [InverseProperty("Auctionbid")]
+        public virtual AspNetUsers IdClientNavigation { get; set; }
+    }
+
+   
