@@ -23,5 +23,6 @@ namespace RetroGamesAuction1.Models.ViewModel
         public string ProductPic1 { get; set; }        
         public string ProductPic2 { get; set; }
 
+        public List<Auctionbid> Auctionbids { get; set; }
     }
 }

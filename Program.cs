@@ -28,7 +28,7 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddTransient<AuctionService>();
 //builder.Services.AddSingleton<AuctionService>();
 builder.Services.AddScoped<AuctionService>();
-
+builder.Services.AddScoped<AuctionBidService>();
 
 var app = builder.Build();
 

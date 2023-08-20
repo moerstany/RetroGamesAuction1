@@ -1,0 +1,43 @@
+﻿@model RetroGamesAuction1.Models.Auctionbid
+@{
+
+    ViewData["Title"] = "AddBid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h1>Создать</h1>
+
+
+<hr />
+<div class="card" id="card1" style="width: 35rem;"
+  <div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddBid">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Bid" class="control-label"></label>
+                <input asp-for="Bid" class="form-control" />
+                <span asp-validation-for="Bid" class="text-danger"></span>
+            </div>
+            
+
+            -
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+<div>
+    <a asp-action="Index" id="link1">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

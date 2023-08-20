@@ -5,6 +5,7 @@
 }
 <header>
     <script src="/js/site.js"></script>
+    
     @*<meta http-equiv="refresh" content="2">*@
 </header>
 @if (@TempData["AlertMessage"] != null)
@@ -70,7 +71,7 @@
                     <p class="card-title" id="date1">Аукцион окончен</p>
                 }
                 <br>
-                <a asp-action="" asp-controller="" asp-route-id="" class="btn btn-outline-primary">Поставить</a>
+                <a asp-action="AddBid" asp-controller="Auctionbid" asp-route-id="@item.IdAuction"  class="btn btn-outline-primary">Поставить</a>
                 <a asp-action="Details" asp-controller="Auction" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Подробности</a>
 				</div>
 			</div>

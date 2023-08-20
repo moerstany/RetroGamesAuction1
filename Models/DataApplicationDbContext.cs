@@ -39,9 +39,9 @@ public partial class DataApplicationDbContext : DbContext
 
             entity.Property(e => e.Datatime).HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-            entity.HasOne(d => d.IdProductNavigation).WithMany(p => p.Auctionbid)
+            entity.HasOne(d => d.IdAuctionNavigation).WithMany(p => p.Auctionbid)
                 .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("auctionbid_id_product_fkey");
+                .HasConstraintName("idAuction");
         });
 
         modelBuilder.Entity<Product>(entity =>

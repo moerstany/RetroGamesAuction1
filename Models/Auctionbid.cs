@@ -15,8 +15,8 @@ public partial class Auctionbid
     [Column("id_auctionbid")]
     public int IdAuctionbid { get; set; }
 
-    [Column("id_product")]
-    public int? IdProduct { get; set; }
+    [Column("id_auction")]
+    public int? IdAuction { get; set; }
 
     [Column("id_client")]
     [StringLength(450)]
@@ -26,13 +26,16 @@ public partial class Auctionbid
     public int Bid { get; set; }
 
     [Column("datatime", TypeName = "timestamp without time zone")]
-    public DateTime? Datatime { get; set; } = DateTime.UtcNow;
+    public DateTime? Datatime { get; set; } = DateTime.Now;
 
     [ForeignKey("IdClient")]
     [InverseProperty("Auctionbid")]
     public virtual AspNetUsers IdClientNavigation { get; set; }
 
-    [ForeignKey("IdProduct")]
+    [ForeignKey("IdAuction")]
     [InverseProperty("Auctionbid")]
-    public virtual Product IdProductNavigation { get; set; }
+    public virtual Auction IdAuctionNavigation { get; set; }
+    
+    public Auction Auction { get; set; }
+    public AspNetUsers AspNetUsers { get; set; }
 }

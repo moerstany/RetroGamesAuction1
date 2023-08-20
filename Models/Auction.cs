@@ -11,6 +11,11 @@ namespace RetroGamesAuction1.Models;
 [Table("auction")]
 public partial class Auction
 {
+    public Auction()
+    {
+        
+        Auctionbid = new HashSet<Auctionbid>();
+    }
     [Key]
     [Column("id_auction")]
     public int IdAuction { get; set; }
@@ -33,4 +38,7 @@ public partial class Auction
     [ForeignKey("IdProduct")]
     [InverseProperty("Auction")]
     public virtual Product IdProductNavigation { get; set; }
+
+    [InverseProperty("IdAuctionNavigation")]
+    public virtual ICollection<Auctionbid> Auctionbid { get; } = new List<Auctionbid>();
 }

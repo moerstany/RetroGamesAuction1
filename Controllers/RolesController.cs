@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RetroGamesAuction1.Models.ViewModel;
 using RetroGamesAuction1.Data;
+using LibSassHost;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using RetroGamesAuction1.Models;
 
 namespace RetroGamesAuction1.Controllers
 {
@@ -44,14 +47,18 @@ namespace RetroGamesAuction1.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult>Create(IdentityRole model) 
+        public async Task<IActionResult>Create(IdentityRole model)
         {
-            
-                if (!_roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
+           
+
+            if (!_roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
+            {
+                
                 {
                     _roleManager.CreateAsync(new IdentityRole(model.Name)).GetAwaiter().GetResult();
                 }
-            
+                
+            }
             return RedirectToAction("Index");
         }
     }

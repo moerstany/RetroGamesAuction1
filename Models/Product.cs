@@ -14,7 +14,7 @@ public partial class Product
     public Product()
     {
         Auction = new HashSet<Auction>();
-        Auctionbid = new HashSet<Auctionbid>();
+       
     }
     [Key]
     [Column("id_product")]
@@ -68,6 +68,5 @@ public partial class Product
     [InverseProperty("IdProductNavigation")]
     public virtual ICollection<Auction> Auction { get; } = new List<Auction>();
 
-    [InverseProperty("IdProductNavigation")]
-    public virtual ICollection<Auctionbid> Auctionbid { get; } = new List<Auctionbid>();
+    
 }
