@@ -11,20 +11,17 @@ window.setTimeout(function () {
 }, 6000);
 
 
-window.setInterval(function () {
 
-    $("#time-text").animate(ontimeupdate);
-}, 1000);
 
 // Update the count down every 1 second
 
 // при наведении мышкой увеличиваем все картинки
 $(function () {
-    $(".card-img-top").mouseover(function () {
-        $(this).animate({ height: '+=10', width: '+=10' });
+    $(".img-fluid").mouseover(function () {
+        $(this).animate({ height: '+=6', width: '+=6' });
     });
-    $(".card-img-top").mouseout(function () {
-        $(this).animate({ height: '-=10', width: '-=10' });
+    $(".img-fluid").mouseout(function () {
+        $(this).animate({ height: '-=6', width: '-=6' });
     });
 });
 
@@ -58,6 +55,4 @@ $(document).ready(function () {
         }
     });
 });
-
-  
 

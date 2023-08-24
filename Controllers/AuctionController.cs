@@ -16,12 +16,12 @@ namespace RetroGamesAuction1.Controllers
     [Authorize]
     public class AuctionController : Controller
     {
-        
-        
+
+
         private readonly AuctionService _auctionService;
-        public AuctionController( AuctionService auctionService)
+        public AuctionController(AuctionService auctionService)
         {
-           
+
             _auctionService = auctionService;
         }
 
@@ -29,7 +29,7 @@ namespace RetroGamesAuction1.Controllers
         public ActionResult Index(string searchBy, string searchValue)
 
         {
-           
+
             if (string.IsNullOrEmpty(searchValue))
             {
                 TempData["InfoMessage"] = "Введите значение для поиска";
@@ -88,7 +88,7 @@ namespace RetroGamesAuction1.Controllers
         public ActionResult Details(int id)
         {
             _auctionService.SelectAuctionById(id);
-            
+
             return View(_auctionService.SelectAuctionById(id));
         }
 
@@ -116,7 +116,7 @@ namespace RetroGamesAuction1.Controllers
             var auction = _auctionService.GetAuctionByID(id);
             return View(auction);
         }
-       
+
         // POST: AuctionController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -124,7 +124,7 @@ namespace RetroGamesAuction1.Controllers
         {
             _auctionService.UpdateAuction(auction);
             TempData["AlertMessage"] = "Аукцион изменен!";
-            
+
             return RedirectToAction(nameof(AllIndex));
         }
 
@@ -152,5 +152,7 @@ namespace RetroGamesAuction1.Controllers
         }
     }
 }
-    
+
+
+
 

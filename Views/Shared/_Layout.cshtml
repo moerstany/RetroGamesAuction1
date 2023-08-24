@@ -18,11 +18,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Roles" asp-action="Index">Роли</a></li>
-                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Product" asp-action="Index">Товары</a></li>
+                                           
                         <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auction" asp-action="Index">Аукцион</a></li>
-                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auction" asp-action="AllIndex">AdminАукцион</a></li>
-                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auctonbid" asp-action="Index">Ставки</a></li>
+                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auctionbid" asp-action="DetailsID">Мои ставки</a></li>
+                        
+                        <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auctionbid" asp-action="Index">Ставки</a></li>
+                        @if(User.IsInRole("Admin"))
+                        {
+                            <li><a class="nav-link text-light" id="link1" asp-area="" asp-controller="Auctionbid" asp-action="Admin">Админ Панель</a></li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

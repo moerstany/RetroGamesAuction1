@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Приветствую главу ! приступим к управлению: </h1>
+<br />
+<br />
+
+<table id="table" class="table-rounded table-bordered col-sm-10" style="">
+    <thead>
+        <tr>
+            <th>
+                Номер
+            </th>
+            <th>
+                Ссылка
+            </th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        
+        
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                <a class="nav-link " id="link2" asp-area="" asp-controller="Roles" asp-action="Index">Список ролей</a>
+                <br />
+                </td>
+                
+            </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <a class="nav-link " id="link2" asp-area="" asp-controller="Product" asp-action="Index">Каталог товаров</a>
+                <br />
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <a class="nav-link" id="link2" asp-area="" asp-controller="Auction" asp-action="AllIndex">Редактирование аукционов</a>
+                <br />
+            </td>
+
+        </tr>
+        
+        
+    </tbody>
+</table>
+

@@ -48,33 +48,30 @@
 		@foreach (var item in Model)
 		{
 			<div class="card p-3 m-3 col-4" id="card1">
-				<img  src="@item.ProductPic" class="card-img-top" alt="...">
+            <img src="@item.ProductPic" class="img-fluid"  alt="...">
 				<div class="card-body">
                     <p class="card-text">Артикул: @item.Articul</p>
 					<h5 class="card-title">@item.ProductName</h5>
 					
                     <h5 class="card-title">Начальная ставка @item.Beginbid  руб.</h5>
+              
 
+                
+				</div>
+            
+                <div class="card-footer">
                 @if (@item.Endtime > item.DateTime)
                 {
-                    <p class="card-text">время до окончания аукциона:</p>
-                    <p  class="time-text" id="time-text">@item.Date1.Value.Days д.д @item.Date1.Value.Hours ч.ч @item.Date1.Value.Minutes м.м @item.Date1.Value.Seconds с.с</p>
-                    
+                    <a asp-action="AddBid" asp-controller="Auctionbid" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Поставить</a>
                 }
 
-                @if (@item.Endtime == item.DateTime)
-               {
-                <p class="card-title" id="date1">Аукцион окончен</p>
-                }
-                @if (@item.Endtime < item.DateTime)
-                {
-                    <p class="card-title" id="date1">Аукцион окончен</p>
-                }
-                <br>
-                <a asp-action="AddBid" asp-controller="Auctionbid" asp-route-id="@item.IdAuction"  class="btn btn-outline-primary">Поставить</a>
                 <a asp-action="Details" asp-controller="Auction" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Подробности</a>
-				</div>
+                </div>
+
+
+
 			</div>
+        
 			
 		}
 

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<RetroGamesAuction1.Models.ViewModel.ListViewModel>
+@{
+    ViewData["Title"] = "DetailsID";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Мои ставки</h1>
+<table  id="table" class="table-rounded table-bordered col-sm-12" style="" >
+    <thead>
+        <tr>
+             <th scope ="col">
+                Id Ставки
+            </th scope ="col">
+            
+             <th scope ="col">
+                Пользователь
+            </th>
+                        
+            <th scope ="col">
+                Товар
+            </th>
+            <th scope ="col">
+                Изображение
+            </th scope ="col">
+
+            <th scope ="col">
+                Ставка
+            </th>
+            <th scope ="col">
+                Время ставки
+            </th>
+            
+            <th scope ="col">
+                Время завершения аукциона
+            </th>
+             <th scope ="col">
+                Статус
+            </th>
+            <th scope ="col">
+                Информация
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAuctionbid)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.ClientName)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    <img class="imgpr" src="/@item.ProductPic" width="60" height="60" alt="картинка" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BidSum)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datatime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Info)
+                    @if (item.Status == "Победа")
+                    {
+                         <a asp-action="Payment" asp-controller="Auction"  class="btn btn-outline-primary">Оплатить</a>
+                    }
+
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+
+

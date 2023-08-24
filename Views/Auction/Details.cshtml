@@ -3,41 +3,66 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-    <script src="/js/site.js"></script>
-</head>
+
+    <head>
+        <script src="/js/site.js"></script>
+
+    @*<meta http-equiv="refresh" content="4">*@
+    </head>
+    <br>
+@if (@TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-secondary">
+        <strong>Ура! </strong>@TempData["AlertMessage"]
+    </div>
+}
 
 @foreach (var item in Model)
 {
-    <div class="card col-md-10" id="card1">
+  <div class="card col-md-10" id="card1">
     <div class="DescriptionContainer">
-    <div class="card col-md-5" id="card1">
-        <h5 class="card-title">@item.ProductName</h5>
-        <p class="card-text">@item.Description</p>
-            </div>
-          <div class="card col-md-5" id="card1">
-                <h5 class="card-title">@item.ProductName</h5>
+            <div class="card col-md-5" id="card1">
+               <h5 class="card-title">@item.ProductName</h5>
                 <p class="card-text">@item.Description</p>
-           </div>
-    </div>
-        <div id="MainImageConteiner" class="card col-md-10">
-            <img id="MainImage" src="/@item.ProductPic" />
-       </div>
-        <div id="TrumbNailMainConteiner">
-            <div class="TrumbConteiner">
+            </div>
+            <div class="card col-md-5" id="card1">
+                  @if (@item.Endtime > item.DateTime)
+                   {
+                    <p class="card-text">время до окончания аукциона:</p>
+                    <p class="time-text" id="time-text">@item.Date1.Value.Days дней @item.Date1.Value.Hours часов @item.Date1.Value.Minutes минут @item.Date1.Value.Seconds секунд</p>
+                    <p class="time-text"> @item.BidSum</p>
+                   }
+
+                  @if (@item.Endtime == item.DateTime)
+                  {
+                    <p class="card-title" id="date1">Аукцион окончен</p>
+                  }
+                 @if (@item.Endtime < item.DateTime)
+                  {
+                    <p class="card-title" id="date1">Аукцион окончен</p>
+                  }
+                 <br>
+            </div>
+             
+     </div>
+   <div id="MainImageConteiner" class="card col-md-10">
+               <img id="MainImage" src="/@item.ProductPic" />
+   </div>
+             <div id="TrumbNailMainConteiner">
+              <div class="TrumbConteiner">
                   <img  src="/@item.ProductPic" class="TrumbImage"/>
-            </div>
-            <div class="TrumbConteiner">
+              </div>
+              <div class="TrumbConteiner">
                 <img src="/@item.ProductPic1" class="TrumbImage" />
-            </div>
-            <div class="TrumbConteiner">
+              </div>
+              <div class="TrumbConteiner">
                 <img src="/@item.ProductPic2" class="TrumbImage" />
-            </div>
+              </div>
         </div>
 
     </div>
 
-     @* <div id="carousel" class="carousel slide rounded col-md-6">
+    @* <div id="carousel" class="carousel slide rounded col-md-6">
 
         <div class="carousel-inner border-info mb-3 p-3 rounded ">
             <div class="carousel-item active">
@@ -60,9 +85,17 @@
         </div>
 
     </div>*@
+    <br />
+   
+    <a asp-action="Index" asp-controller="Auction"  class="btn btn-outline-primary">Вернуться</a>
+
+    <a asp-action="Details" asp-controller="Auctionbid" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Посмотреть ставки</a>
+    @if (@item.Endtime > item.DateTime)
+    {
+        <a asp-action="AddBid" asp-controller="Auctionbid" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Поставить</a>
+    }
     <script src="/js/site.js"></script>
 }
-
 
 
 

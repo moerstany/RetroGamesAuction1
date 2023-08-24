@@ -13,12 +13,13 @@ public partial class DataApplicationDbContext : DbContext
         : base(options)
     {
     }
-
+    
     public virtual DbSet<Auction> Auction { get; set; }
 
     public virtual DbSet<Auctionbid> Auctionbid { get; set; }
 
     public virtual DbSet<Product> Product { get; set; }
+    public object AspNetUsers { get; internal set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

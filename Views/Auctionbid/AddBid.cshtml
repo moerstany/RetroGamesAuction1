@@ -13,18 +13,16 @@
 <div class="card" id="card1" style="width: 35rem;"
   <div class="row">
     <div class="col-md-4">
-        <form asp-action="AddBid">
+        <form method="post" enctype="multipart/form-data" asp-action="AddBid" asp-controller="Auctionbid">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
             <div class="form-group">
-                <label asp-for="Bid" class="control-label">Поставить на 50р больше последней ставки </label>
-                <select multiple class="form-control" asp-for="Bid">
-                    <option>на 50рублей</option>
-
-                </select>
+                <p asp-for="Bid" class="control-label">последняя ставка: </p>
+                <p asp-for="Bid" class="control-label">от пользователя: </p>
+                <label asp-for="Bid" class="control-label">Ставлю на 50р больше</label>
+                @*<input asp-for="Bid" class="form-control" />
+                <span asp-validation-for="Bid" class="text-danger"></span>*@
             </div>
             
-
             -
             <div class="form-group">
                 <input type="submit" value="Создать" class="btn btn-primary" />
@@ -33,8 +31,9 @@
     </div>
   </div>
 </div>
+
 <div>
-    <a asp-action="Index" asp-controller="Auction" asp-route-id="@Model.IdAuction" id="link1">Вернуться</a>
+    <a asp-action="Details" asp-controller="Auction" asp-route-id="@Model.IdAuction" id="link1">Вернуться</a>
 </div>
 
 @section Scripts {
