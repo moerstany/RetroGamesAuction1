@@ -7,7 +7,7 @@
     <head>
         <script src="/js/site.js"></script>
 
-    @*<meta http-equiv="refresh" content="4">*@
+    @*<meta http-equiv="refresh" content="1">*@
     </head>
     <br>
 @if (@TempData["AlertMessage"] != null)
@@ -31,6 +31,7 @@
                     <p class="card-text">время до окончания аукциона:</p>
                     <p class="time-text" id="time-text">@item.Date1.Value.Days дней @item.Date1.Value.Hours часов @item.Date1.Value.Minutes минут @item.Date1.Value.Seconds секунд</p>
                     <p class="time-text"> @item.BidSum</p>
+
                    }
 
                   @if (@item.Endtime == item.DateTime)
@@ -42,6 +43,7 @@
                     <p class="card-title" id="date1">Аукцион окончен</p>
                   }
                  <br>
+                <a asp-action="Details" asp-controller="Auction" asp-route-id="@item.IdAuction" class="btn btn-outline-primary">Обновить информацию</a>
             </div>
              
      </div>

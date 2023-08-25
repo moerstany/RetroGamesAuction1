@@ -222,5 +222,12 @@ namespace RetroGamesAuction1.Controllers
             return View();
         }
 
+        public ActionResult Pay()
+        {
+
+
+            return View();
+        }
+
     }
 }
