@@ -55,6 +55,8 @@ namespace RetroGamesAuction1.Controllers
             }
             return View(_auctionService.SelectAuction());
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult AllIndex(string searchBy, string searchValue)
 
         {
@@ -91,7 +93,8 @@ namespace RetroGamesAuction1.Controllers
 
             return View(_auctionService.SelectAuctionById(id));
         }
-
+        
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -100,6 +103,7 @@ namespace RetroGamesAuction1.Controllers
             return View(auction);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -118,16 +122,26 @@ namespace RetroGamesAuction1.Controllers
         }
 
         // POST: AuctionController/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Auction auction)
+        public ActionResult Edit(Auction auction,int id)
         {
-            _auctionService.UpdateAuction(auction);
-            TempData["AlertMessage"] = "Аукцион изменен!";
+            var auctionUpdate = _auctionService.GetAuctionByID(id);
+            auctionUpdate.Begintime = _auctionService.GetAuctionByID(id).Begintime;
+            auctionUpdate.Endtime = _auctionService.GetAuctionByID(id).Endtime;
+            auctionUpdate.IdProduct = auction.IdProduct;
+            auctionUpdate.Beginbid = auction.Beginbid;
 
+            if (auction != null && auctionUpdate.Begintime.HasValue && auctionUpdate.Endtime.HasValue)
+            {
+                _auctionService.UpdateAuction(auction);
+                TempData["AlertMessage"] = "Аукцион изменен!";
+            }
             return RedirectToAction(nameof(AllIndex));
         }
-
+        
+        [Authorize(Roles = "Admin")]
         // GET: ProductController/Delete/5
         public ActionResult Delete(int id)
         {
@@ -135,7 +149,8 @@ namespace RetroGamesAuction1.Controllers
             TempData["AlertMessage"] = "Aукцион удален!";
             return RedirectToAction(nameof(AllIndex));
         }
-
+        
+        [Authorize(Roles = "Admin")]
         // POST: ProductController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

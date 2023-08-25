@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RetroGamesAuction1.Data;
 using RetroGamesAuction1.Models;
@@ -18,6 +19,30 @@ namespace RetroGamesAuction1.Services
             _context = context;
             //_context1= context1;
         }
+        public Auctionbid GetAuctionBidByID(int id)
+        {
+            return _context.Auctionbid.Find(id);
+
+
+        }
+
+       
+        public  void  UpdateAuctionBid ( int id,Auctionbid auctionbid)
+        {
+            //_context.Auctionbid.(id,auctionbid);
+            _context.SaveChanges();
+
+        }
+       public async Task<Auctionbid> FindAuctionId(int id)
+        {
+            return await _context.Auctionbid.FindAsync(id);
+        }
+        public void RemoveAuctionBid(int id)
+        {
+            _context.Auctionbid.Remove(_context.Auctionbid.Find(id));
+            _context.SaveChanges();
+
+        }
 
         public bool AddBids(Auctionbid bid)
         {
@@ -33,7 +58,7 @@ namespace RetroGamesAuction1.Services
                         on a.IdAuction equals b.IdAuction
                         join p in _context.Product
                         on b.IdProduct equals p.IdProduct
-                        
+                        orderby a.IdAuctionbid
                         select new ListViewModel
                         {
                             IdAuction = b.IdAuction,
@@ -49,8 +74,9 @@ namespace RetroGamesAuction1.Services
                             LastBid = a.LastBid,
                             ClientName = a.ClientName,
                             Status = a.Status,
-                            BidSum = b.Beginbid + a.LastBid
-
+                            BidSum = b.Beginbid + a.LastBid,
+                            IdAuctionbid = a.IdAuctionbid,
+                            Info= a.Info
                         }
 
                         ).ToList();
@@ -76,7 +102,7 @@ namespace RetroGamesAuction1.Services
                           on a.IdAuction equals b.IdAuction
                           join p in _context.Product
                           on b.IdProduct equals p.IdProduct
-                          
+                          orderby a.IdAuctionbid
                           select new ListViewModel
                           {   IdAuctionbid=a.IdAuctionbid,
                               IdAuction = b.IdAuction,
@@ -116,6 +142,7 @@ namespace RetroGamesAuction1.Services
                           join p in _context.Product
                           on b.IdProduct equals p.IdProduct
                           orderby a.Datatime
+
                           select new ListViewModel
                           {
                               IdAuctionbid = a.IdAuctionbid,

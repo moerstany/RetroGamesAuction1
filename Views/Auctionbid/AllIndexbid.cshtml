@@ -1,23 +1,25 @@
 ﻿@model IEnumerable<RetroGamesAuction1.Models.ViewModel.ListViewModel>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "AllIndexbid";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
+<header>
+    <script src="/js/site.js"></script>
     
-
-<h1>Ставки </h1>
-
-
+    @*<meta http-equiv="refresh" content="2">*@
+</header>
 @if (@TempData["AlertMessage"] != null)
 {
-    <div class="alert alert-secondary">
-        <strong>Ура! </strong>@TempData["AlertMessage"]
-    </div>
+  <div class="alert alert-secondary">
+    <strong>Ура! </strong>@TempData["AlertMessage"]
+</div>  
 }
 <br />
 
-   <div class="align-self-lg-center">
+<h1>Cтавки</h1>
+
+ <div class="align-self-lg-center">
     @using (Html.BeginForm("Index", "Auctionbid", FormMethod.Get))
     {
         <table>
@@ -44,13 +46,11 @@
             </tr>
         </table>
     }
-</div>
-
-      <table  id="table" class="table-rounded table-bordered col-sm-10" style="" >
-         <thead>
-            <tr>
+<table  id="table" class="table-rounded table-bordered col-sm-10" style="" >
+    <thead>
+        <tr>
              <th scope ="col">
-                Id aукциона
+                Id Ставки
             </th scope ="col">
             
              <th scope ="col">
@@ -77,6 +77,12 @@
              <th scope ="col">
                 Статус
             </th>
+            <th scope ="col">
+                Информация
+            </th>
+            <th scope ="col">
+                Изменения
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -84,7 +90,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdAuction)
+                    @Html.DisplayFor(modelItem => item.IdAuctionbid)
                 </td>
                  <td>
                     @Html.DisplayFor(modelItem => item.ClientName)
@@ -94,7 +100,7 @@
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
                 <td>
-                    <img class="imgpr" src="/@item.ProductPic" width="100" height="100" alt="картинка" />
+                    <img class="imgpr" src="/@item.ProductPic" width="60" height="60" alt="картинка" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BidSum)
@@ -109,12 +115,21 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
-                
-                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Info)
+                    
+
+                </td>
+                <td>
+                   <a href="@Url.Action("Edit","Auctionbid",new {@id=item.IdAuctionbid})" class="btn btn-outline-primary col-12">Изменить</a>
+                    <hr />
+                    <a href="@Url.Action("Delete","Auctionbid",new {@id=item.IdAuctionbid})" class="btn btn-outline-danger col-12" onclick="return confirm('Вы правда хотите удалить ставку номер: @item.IdAuctionbid ?')">Удалить</a>
+                    
+
+                </td>
             </tr>
         }
     </tbody>
 </table>
 
-
-<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="/js/site.js"></script>

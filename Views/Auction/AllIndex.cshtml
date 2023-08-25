@@ -43,8 +43,10 @@
 <br />
  <a href="@Url.Action("Create","Auction","Auction")" class="btn btn-outline-primary">Создать</a>
  <br />
-<table  id="table" class="table-rounded table-bordered col-sm-12" style="" >
-    <thead>
+ <div class="container-fluid py-5 col-sm-12" >
+     <div class="row">
+      <table  id="table" class="table-rounded table-bordered col-sm-12 hover display compact" style="width:100%"  style="" >
+       <thead>
         <tr>
              <th scope ="col">
                 Id aукциона
@@ -97,8 +99,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Beginbid) +
-                     @Html.DisplayFor(modelItem => item.LastBid)
+                    @Html.DisplayFor(modelItem => item.Beginbid) 
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Begintime)
@@ -115,3 +116,5 @@
         }
     </tbody>
 </table>
+</div>
+</div>

@@ -29,7 +29,7 @@ namespace RetroGamesAuction1.Services
 
         public void UpdateAuction(Auction auction)
         {
-            _context.Update(auction);
+           // _context.Update(auction);
             _context.SaveChanges();
 
         }

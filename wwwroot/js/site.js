@@ -56,3 +56,9 @@ $(document).ready(function () {
     });
 });
 
+//пагинация табличек бутстрап
+$(document).ready(function () {
+    $('#table').DataTable();
+});
+
+new DataTable('#table');

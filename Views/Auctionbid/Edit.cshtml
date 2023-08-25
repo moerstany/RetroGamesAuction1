@@ -1,0 +1,78 @@
+﻿@model RetroGamesAuction1.Models.Auctionbid
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Изменение ставки</h1>
+<hr />
+<div class="card" id="card1" style="width: 35rem;"
+  <div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data" asp-controller="Auctionbid">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAuctionbid" />
+            <div class="form-group">
+                <label asp-for="IdAuctionbid" class="control-label">Номер ставки</label>
+                <input asp-for="IdAuctionbid" id="sh" class="form-control" value="@Model.IdAuctionbid" />
+                <span asp-validation-for="IdAuctionbid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdAuction" class="control-label">Номер аукциона</label>
+                <input asp-for="IdAuction" id="sh" class="form-control" value="@Model.IdAuction"/>
+                <span asp-validation-for="IdAuction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdClient" class="control-label">ID клиента</label>
+                <input asp-for="IdClient" id="sh" class="form-control" value="@Model.IdClient"/>
+                <span asp-validation-for="IdClient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bid" class="control-label">Шаг ставки</label>
+                <input asp-for="Bid" id="sh" class="form-control" value="@Model.Bid"/>
+                <span asp-validation-for="Bid" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Datatime" class="control-label">Время заказа</label>
+                <input asp-for="Datatime" id="sh" class="form-control" value="@Model.Datatime"/>
+                <span asp-validation-for="Datatime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Статус заказа</label>
+                <input asp-for="Status" id="sh" class="form-control" value="@Model.Status" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastBid" class="control-label">Ставка</label>
+                <input asp-for="LastBid" id="sh" class="form-control" value="@Model.LastBid"/>
+                <span asp-validation-for="LastBid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName" class="control-label">Имя пользователя</label>
+                <input asp-for="ClientName" id="sh" class="form-control" value="@Model.ClientName"/>
+                <span asp-validation-for="ClientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info" class="control-label">Информация</label>
+                <input asp-for="Info" id="sh" class="form-control" value="@Model.Info"/>
+                <span asp-validation-for="Info" class="text-danger"></span>
+            </div>
+
+            -
+            <div class="form-group">
+                <input type="submit" value="Изменить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+<div>
+    <a asp-action="Allindexbid" id="link1">Вернуться</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
