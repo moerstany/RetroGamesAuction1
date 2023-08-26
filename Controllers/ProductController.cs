@@ -138,6 +138,7 @@ namespace RetroGamesAuction1.Controllers
                 folder2 += Guid.NewGuid().ToString() + product.Photo3.FileName;
                 product.ProductPic2 = folder2;
                 string serverFolder2 = Path.Combine(_webHostEnvironment.WebRootPath, folder2);
+                await product.Photo3.CopyToAsync(new FileStream(serverFolder2, FileMode.Create));
                 pr.ProductPic1 = product.ProductPic1;
                 pr.ProductPic2 = product.ProductPic2;
                 pr.ProductPic = product.ProductPic;

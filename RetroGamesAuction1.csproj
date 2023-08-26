@@ -10,17 +10,29 @@
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\fone1.jpg" />
+    <Content Remove="wwwroot\lib\product\0b7353b8-69f1-4c79-af78-125a30992384md1.jpg" />
     <Content Remove="wwwroot\lib\product\0e65082b-9789-47db-a493-4e5d217a277ahorde2.jpg" />
     <Content Remove="wwwroot\lib\product\25acc0e6-ac99-4ac6-a067-8fd263084d17horde3.jpg" />
     <Content Remove="wwwroot\lib\product\446c8c02-7da1-4749-8c8c-9904ffad9052horde1.jpg" />
+    <Content Remove="wwwroot\lib\product\4ea80544-78fd-45ae-9283-a02cd8f79440md1.jpg" />
     <Content Remove="wwwroot\lib\product\525925f1-f79e-47e0-bd76-5285e4f8b293horde3.jpg" />
     <Content Remove="wwwroot\lib\product\5c225878-ea45-435f-840f-abc495701a96horde2.jpg" />
     <Content Remove="wwwroot\lib\product\60470275-70fb-4a93-b334-8f8a8bba3515horde1.jpg" />
     <Content Remove="wwwroot\lib\product\69e9869a-c917-4c96-af9c-424f82d4318ehorde4.jpg" />
+    <Content Remove="wwwroot\lib\product\77576b84-9d5f-4263-bea1-cd6395dd16f5Po3.jpg" />
     <Content Remove="wwwroot\lib\product\7fcaf4c5-0bd5-48ab-b07b-0117f414d685horde3.jpg" />
+    <Content Remove="wwwroot\lib\product\80afcc46-ddd3-4f25-98c3-49e2b87043a1md2.jpg" />
+    <Content Remove="wwwroot\lib\product\875bfe37-2707-4cbf-a584-6e47adf2a3aemd2.jpg" />
+    <Content Remove="wwwroot\lib\product\8ca650cc-b0ec-49e3-abbe-a3aaac4c4d70Po2.jpg" />
+    <Content Remove="wwwroot\lib\product\9f517b00-db90-4d58-9f30-e1fd9a90a3a0md2.jpg" />
+    <Content Remove="wwwroot\lib\product\a29bcb84-cb78-46ce-8664-53652037451cmd3.jpg" />
+    <Content Remove="wwwroot\lib\product\a78ccfd3-1145-4f5b-8829-08eff35b8330Po1.jpg" />
     <Content Remove="wwwroot\lib\product\b34f1e00-45a1-4d4d-81c6-9ff17a737e89horde4.jpg" />
+    <Content Remove="wwwroot\lib\product\c8d57e4f-2804-4d87-9cb9-ef30fefa1f17md1.jpg" />
+    <Content Remove="wwwroot\lib\product\cae7603b-f748-42e1-9980-a937a45fa5e6Po1.jpg" />
     <Content Remove="wwwroot\lib\product\cb7fff7a-5661-4e49-80c3-0d079142e297horde4.jpg" />
     <Content Remove="wwwroot\lib\product\da952f13-f030-4448-b294-937f1b3c9533horde1.jpg" />
+    <Content Remove="wwwroot\lib\product\df0a6eb2-182d-46a7-9e91-f88367a0de56Po2.jpg" />
     <Content Remove="wwwroot\lib\product\e9a612c1-9db7-4ab1-a218-176ccad6e62ahorde2.jpg" />
   </ItemGroup>
 

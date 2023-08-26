@@ -25,6 +25,7 @@ namespace RetroGamesAuction1.Controllers
             // _auctionService = auctionService;
         }
 
+        [Authorize]
         public ActionResult Index(string searchBy, string searchValue)
 
         {
